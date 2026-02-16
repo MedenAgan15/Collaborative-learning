@@ -9,3 +9,6 @@ def combine ():
     items:list[Item]= refs.get_all_items()
     result = e4.groupby_category_with_itertools(e2.apply_taxes_with_map(e1.filter_items_with_filter(items)))
     
+    for categorie in result:
+        print(f"{categorie}")
+        print(refs.convert_items_to_string(result[categorie]))
