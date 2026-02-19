@@ -1,5 +1,6 @@
 import refs
 from refs import Item as Item
+import tests as ut
 
 import e1_filter as e1
 import e2_map as e2
@@ -19,5 +20,11 @@ Liste initiale --> Filtre --> Liste filtrée --> Réévaluation des prix --> Lis
 '''
 # ----------------------------------------------------------------------------------------------------
 
-def combine ():
+def combine (items:list[Item]):
     raise NotImplementedError(f"{combine.__name__} n'est pas encore implémentée")
+    
+#region Exécution (ne pas toucher)
+if __name__ == "__main__":
+    print("TEST - ETAPE 5 - Début...")
+    ut.TestCombine().run(combine)
+    print("TEST - ETAPE 5 - Début...")
