@@ -68,10 +68,15 @@ def filter_items_with_filter (items:list[Item]) -> list[Item]:
     raise NotImplementedError(f"{filter_items_with_filter.__name__} n'est pas encore implémentée")
 #endregion
 
+#region Filtre avec la fonction native filter et utilisation d'une fonction lambda
+def filter_items_with_filter_and_lambda (items:list[Item]) -> list[Item]:  
+    raise NotImplementedError(f"{filter_items_with_filter.__name__} n'est pas encore implémentée")
+#endregion
+
 #region Exécution (ne pas toucher)
 if __name__ == "__main__":
     print("TEST - ETAPE 1 - Début...")
-    ut.TestFilter().run(filter_items_classic, filter_items_with_filter)
+    ut.TestFilter().run(filter_items_classic, filter_items_with_filter,filter_items_with_filter_and_lambda)
     print("TEST - ETAPE 1 - Fin")
 #endregion
 

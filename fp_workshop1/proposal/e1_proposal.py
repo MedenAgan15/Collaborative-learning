@@ -29,5 +29,10 @@ def filter_items_with_filter (items:list[Item]) -> list[Item]:
     return list(filter(accept_item, items))
 #endregion
 
+#region Filtre avec la fonction native filter et une fonction lambda
+def filter_items_with_filter_and_lambda (items:list[Item]) -> list[Item]:    
+    return list(filter(lambda item: item.price >= refs.MIN_PRICE, items))
+#endregion
+
 #endregion
 

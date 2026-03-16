@@ -59,9 +59,10 @@ class TestBase(unittest.TestCase):
 
 class TestFilter(TestBase):
     
-    def run(self, filtering_classic_func:callable, filtering_studied_func:callable):
+    def run(self, filtering_classic_func:callable, filtering_studied_func:callable, filtering_studied_lambda_func:callable):
         self.test_func(FunctionContext(filtering_classic_func, s1.filter_items_classic,'Filtrage "classique" des objets'), self.list_comparator)
         self.test_func(FunctionContext(filtering_studied_func, s1.filter_items_with_filter,'Filtrage des objets avec la fonction native "filter"'), self.list_comparator)
+        self.test_func(FunctionContext(filtering_studied_lambda_func, s1.filter_items_with_filter_and_lambda,'Filtrage des objets avec la fonction native "filter" et lambda'), self.list_comparator)
 
 class TestMap(TestBase):
 

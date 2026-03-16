@@ -14,9 +14,9 @@ class Seller(IntEnum):
     All possible sellers
     """
     NOONE=-1
-    ENZO = 0,
-    AGATHE = 1,
-    ZOE = 2
+    A = 0,
+    B = 1,
+    C = 2
 
     def get_index (self) -> int:
         if self is None: return Seller.NOONE
@@ -67,34 +67,34 @@ def convert_items_to_string (items:list[Item]) -> str:
 
 def get_all_items():
     return [
-        Item(Seller.ZOE, ItemCategory.VETEMENTS, "Jean taille L", 15),
-        Item(Seller.ENZO, ItemCategory.AMEUBLEMENT, "Tapis en laine", 25),
-        Item(Seller.ZOE, ItemCategory.JARDINAGE, "Paire de gants de jardinage renforcés", 16),
-        Item(Seller.AGATHE, ItemCategory.BRICOLAGE, "Chevilles placo x 100", 10),
-        Item(Seller.ZOE, ItemCategory.BRICOLAGE, "Protections auditives", 20),
-        Item(Seller.ENZO, ItemCategory.VETEMENTS, "Bottes de cuir", 25),
-        Item(Seller.AGATHE, ItemCategory.AMEUBLEMENT, "Coussins brodés (x2)", 15),
-        Item(Seller.ZOE, ItemCategory.AMEUBLEMENT, "Chaises en paille (x4)", 60),
-        Item(Seller.ENZO, ItemCategory.BRICOLAGE, "Disqueuse D125", 35),
-        Item(Seller.AGATHE, ItemCategory.JARDINAGE, "Taille-haies", 70),
-        Item(Seller.ZOE, ItemCategory.VETEMENTS, "Chapeau de paille", 13),
-        Item(Seller.ENZO, ItemCategory.JARDINAGE, "Pulvérisateur", 20),
-        Item(Seller.AGATHE, ItemCategory.VETEMENTS, "Casquette MAGA", 5),
-        Item(Seller.ZOE, ItemCategory.JARDINAGE, "Sécateur", 15),
-        Item(Seller.ENZO, ItemCategory.AMEUBLEMENT, "Rideaux", 10),
-        Item(Seller.AGATHE, ItemCategory.BRICOLAGE, "Marteau perforateur", 50),
-        Item(Seller.ENZO, ItemCategory.VETEMENTS, "Chapeau melon", 50),
-        Item(Seller.ZOE, ItemCategory.BRICOLAGE, "Lunettes de protection", 12),
-        Item(Seller.AGATHE, ItemCategory.AMEUBLEMENT, "Table basse verre", 25),
-        Item(Seller.ENZO, ItemCategory.BRICOLAGE, "Perseuse sans fil 12V", 15),
-        Item(Seller.ZOE, ItemCategory.AMEUBLEMENT, "Commode en pin", 80),
-        Item(Seller.AGATHE, ItemCategory.VETEMENTS, "Veste polaire bleue", 15),
-        Item(Seller.ENZO, ItemCategory.JARDINAGE, "Arrosoir 20L", 8),
-        Item(Seller.AGATHE, ItemCategory.BRICOLAGE, "Echaffaudage", 100),
-        Item(Seller.ZOE, ItemCategory.JARDINAGE, "Paire de gants de jardinage", 10),
-        Item(Seller.ENZO, ItemCategory.VETEMENTS, "Lot de 3 T-shirts taille S", 25),
-        Item(Seller.ENZO, ItemCategory.AMEUBLEMENT, "Chaise à bascule", 55),
-        Item(Seller.AGATHE, ItemCategory.JARDINAGE, "Ramasse-feuilles", 30)
+        Item(Seller.C, ItemCategory.VETEMENTS, "Jean taille L", 15),
+        Item(Seller.A, ItemCategory.AMEUBLEMENT, "Tapis en laine", 25),
+        Item(Seller.C, ItemCategory.JARDINAGE, "Paire de gants de jardinage renforcés", 16),
+        Item(Seller.B, ItemCategory.BRICOLAGE, "Chevilles placo x 100", 10),
+        Item(Seller.C, ItemCategory.BRICOLAGE, "Protections auditives", 20),
+        Item(Seller.A, ItemCategory.VETEMENTS, "Bottes de cuir", 25),
+        Item(Seller.B, ItemCategory.AMEUBLEMENT, "Coussins brodés (x2)", 15),
+        Item(Seller.C, ItemCategory.AMEUBLEMENT, "Chaises en paille (x4)", 60),
+        Item(Seller.A, ItemCategory.BRICOLAGE, "Disqueuse D125", 35),
+        Item(Seller.B, ItemCategory.JARDINAGE, "Taille-haies", 70),
+        Item(Seller.C, ItemCategory.VETEMENTS, "Chapeau de paille", 13),
+        Item(Seller.A, ItemCategory.JARDINAGE, "Pulvérisateur", 20),
+        Item(Seller.B, ItemCategory.VETEMENTS, "Casquette MAGA", 5),
+        Item(Seller.C, ItemCategory.JARDINAGE, "Sécateur", 15),
+        Item(Seller.A, ItemCategory.AMEUBLEMENT, "Rideaux", 10),
+        Item(Seller.B, ItemCategory.BRICOLAGE, "Marteau perforateur", 50),
+        Item(Seller.A, ItemCategory.VETEMENTS, "Chapeau melon", 50),
+        Item(Seller.C, ItemCategory.BRICOLAGE, "Lunettes de protection", 12),
+        Item(Seller.B, ItemCategory.AMEUBLEMENT, "Table basse verre", 25),
+        Item(Seller.A, ItemCategory.BRICOLAGE, "Perseuse sans fil 12V", 15),
+        Item(Seller.C, ItemCategory.AMEUBLEMENT, "Commode en pin", 80),
+        Item(Seller.B, ItemCategory.VETEMENTS, "Veste polaire bleue", 15),
+        Item(Seller.A, ItemCategory.JARDINAGE, "Arrosoir 20L", 8),
+        Item(Seller.B, ItemCategory.BRICOLAGE, "Echaffaudage", 100),
+        Item(Seller.C, ItemCategory.JARDINAGE, "Paire de gants de jardinage", 10),
+        Item(Seller.A, ItemCategory.VETEMENTS, "Lot de 3 T-shirts taille S", 25),
+        Item(Seller.A, ItemCategory.AMEUBLEMENT, "Chaise à bascule", 55),
+        Item(Seller.B, ItemCategory.JARDINAGE, "Ramasse-feuilles", 30)
        ]
 
 def get_revenue (item:Item) -> float:
