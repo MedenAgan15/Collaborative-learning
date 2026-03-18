@@ -24,31 +24,46 @@ refs.Seller.get_index(item.seller).
 On trouvera dans la page ci-après plus d'information sur les tableaux Python :
 https://docs.python.org/3/library/array.html
 '''
-# ----------------------------------------------------------------------------------------------------
 
+# ----------------------------------------------------------------------------------------------------
 #region Réduction via implémentation impérative  
+# ----------------------------------------------------------------------------------------------------
 
 def compute_revenue_classic (items:list[Item]) -> array:
     '''
-    Il s'agit ici de faire appel à la notion de boucle pour produire le résultat attendu.
+    Il s'agit ici de faire classiquement appel à la notion de boucle pour produire le résultat attendu.
     '''
     raise NotImplementedError(f"{compute_revenue_classic.__name__} n'est pas encore implémentée")
 #endregion
 
-#region avec la fonction native 'reduce"
+# ----------------------------------------------------------------------------------------------------
+#region Avec la fonction native 'reduce"
+# ----------------------------------------------------------------------------------------------------
 
 def compute_revenue_studied (items:list[Item]) -> array:
     '''
     Il convient ici de se passer complètement de la notion de boucle, et de faire appel à la fonction native 'reduce' pôr obtenir le même résultat que
     précédement.
-    On pouyrra trouver dans la page ci-après plus d'indications sur cette fonction :
+    On pourra trouver dans la page ci-après plus d'indications sur cette fonction :
     https://www.datacamp.com/fr/tutorial/python-reduce-complete-guide
     '''
     raise NotImplementedError(f"{compute_revenue_studied.__name__} n'est pas encore implémentée")
  #endregion   
 
+# ----------------------------------------------------------------------------------------------------
+#region Avec approche récursive
+# ----------------------------------------------------------------------------------------------------
+def compute_revenue_recursive (items:list[Item]) -> array:
+    '''
+    Cette fois, nous laissons complètement de côté l'approche impérative et la fonction reduce.
+    Il s'agit d'utiliser la récursivité pour obtenir le même résultat !
+    '''
+    raise NotImplementedError(f"{compute_revenue_recursive.__name__} n'est pas encore implémentée")
+    
+#endregion
+
 #region Exécution (ne pas toucher)
 if __name__ == "__main__":
-    ut.TestReduce().run(compute_revenue_classic, compute_revenue_studied)
+    ut.TestReduce().run(compute_revenue_classic, compute_revenue_studied, compute_revenue_recursive)
 #endregion
 #endregion

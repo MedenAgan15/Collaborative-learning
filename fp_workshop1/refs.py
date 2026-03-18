@@ -97,8 +97,11 @@ def get_all_items():
         Item(Seller.B, ItemCategory.JARDINAGE, "Ramasse-feuilles", 30)
        ]
 
-def get_revenue (item:Item) -> float:
 
+def get_revenue (item:Item) -> float:
+    '''
+    Returns the sale price of the item
+    '''
     if item is None: return 0
     return ITEM_TO_REVENUE.get(item.label, 0)
 

@@ -108,13 +108,15 @@ class TestReduce(TestBase):
             if seller_enum_member != refs.Seller.NOONE:
                 print (f"Recette de {seller_enum_name} : {result[refs.Seller.get_index(seller_enum_member)]} €")
 
-   def run (self, reduce_classic:callable, reduce_studied: callable) -> None:
+   def run (self, compute_revenue_classic:callable, compute_revenue_studied: callable, compute_revenue_recursive : callable) -> None:
         
-        result:list[Item] = self.test_func(FunctionContext(reduce_classic, s6.compute_revenue_classic,'Réduction "classique"'), self.array_comparator)
+        result:list[Item] = self.test_func(FunctionContext(compute_revenue_classic, s6.compute_revenue_classic,'Réduction "classique"'), self.array_comparator)
         self.print_revenues(result)
-        print ("")
 
-        result:list[Item] = self.test_func(FunctionContext(reduce_studied, s6.compute_revenue_studied,'Réduction avec la fonction "itertools.reduce"'), self.array_comparator)
+        result:list[Item] = self.test_func(FunctionContext(compute_revenue_studied, s6.compute_revenue_studied,'Réduction avec la fonction "itertools.reduce"'), self.array_comparator)
+        self.print_revenues(result)
+
+        result:list[Item] = self.test_func(FunctionContext(compute_revenue_recursive, s6.compute_revenue_studied,'Réduction avec approche récursive'), self.array_comparator)
         self.print_revenues(result)
        
        
