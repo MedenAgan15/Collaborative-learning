@@ -95,7 +95,11 @@ class TestGroupBy(TestBase):
         self.test_func(FunctionContext(group_by_classic_func, s4.groupby_category_classic,'Groupement "classique"'), self.dict_comparator)
         self.test_func(FunctionContext(group_by_studied_with_itertools_func, s4.groupby_category_with_itertools,'Groupement avec la fonction "itertools.groupby"'), self.dict_comparator)
         
-class TestReduce(TestBase):
+class TestCombine(TestGroupBy):
+    def run (self, combine:callable) -> None:
+        self.test_func(FunctionContext(combine, s5.combine,'Combinaison'), self.dict_comparator)        
+
+class TestReduce(TestGroupBy):
 
    def array_comparator (self, expected:array, actual: array) -> None:
        return expected == actual
