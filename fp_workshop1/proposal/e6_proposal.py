@@ -60,7 +60,16 @@ def compute_revenue_studied (items:list[Item]) -> array:
 #endregion   
 
 #region avec approche récursive
-def compute_revenue_recursive (items:list[Item], result: array=[0,0,0]) -> array:
+def compute_revenue_recursive (items:list[Item]) -> array:
+
+    if len(items) > 1 : 
+        # The process goes on with the rest of the list, excluding the first element 
+        # since it has been taken into account
+        return _add_item(compute_revenue_recursive(items[1:]), items[0])
+    else:
+        return _add_item([0, 0, 0], items[0])
+
+def compute_revenue_recursive2 (items:list[Item], result: array=[0,0,0]) -> array:
 
     if (items is None or len(items) == 0) :
         return [0, 0, 0]
