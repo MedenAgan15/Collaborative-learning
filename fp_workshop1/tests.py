@@ -12,6 +12,7 @@ from array import array
 
 import refs
 from refs import Item as Item
+import files
 
 def print_items(items:list[Item]) -> None:
     print (refs.convert_items_to_string(items))
@@ -34,6 +35,10 @@ class FunctionContext ():
 
 class TestBase(unittest.TestCase):
 
+    def __init__ (self, name:str) -> None:
+        super().__init__ ()
+        self.name= name
+
     def list_comparator (self, expected:list[Item], actual:list[Item]) -> None:
         self.assertEqual(expected, actual, "La liste ne correspond pas au résultat attendu")
 
@@ -42,23 +47,36 @@ class TestBase(unittest.TestCase):
         print_banner(function_ctx.banner)
 
         if function_ctx.function is not None:
-            try:
-                all_items:list[Item] = refs.get_all_items()
 
-                actual:list[Item] = function_ctx.function(all_items)
-                expected:list[Item] = function_ctx.solution_function(all_items)
+            with files.open_result_file(self.name) as file:
+                try:
+                    all_items:list[Item] = refs.get_all_items()
+                    cloned_list:list[Item] = list(all_items)
 
-                comparator(expected, actual)
+                    actual:list[Item] = function_ctx.function(all_items)                    
+                    file.write ("RESULTAT")
+                    files.write(actual, file)
 
-                print("> Exécution réussie : le résultat est conforme à l'attendu")  
+                    expected:list[Item] = function_ctx.solution_function(cloned_list)
+                    file.write ("\nATTENDU")
+                    files.write(expected,file)
 
-                return actual  
-            except NotImplementedError as e:
-                print(f"> Exécution non réalisée : {e}")       
-                return None   
+                    comparator(expected, actual)
+                    print("> Le résultat produit est conforme à l'attendu")  
+
+                    self.assertEqual(cloned_list, all_items, "Attention, la liste initiale a été modifiée !")
+                    print("> Test achevé avec succès")  
+
+                    return actual  
+                except NotImplementedError as e:
+                    print(f"> Test non réalisée : {e}")       
+                    return None   
 
 class TestFilter(TestBase):
     
+    def __init__ (self) -> None:
+        super().__init__("test_filters")
+
     def run(self, filtering_classic_func:callable, filtering_studied_func:callable, filtering_studied_lambda_func:callable):
         self.test_func(FunctionContext(filtering_classic_func, s1.filter_items_classic,'Filtrage "classique" des objets'), self.list_comparator)
         self.test_func(FunctionContext(filtering_studied_func, s1.filter_items_with_filter,'Filtrage des objets avec la fonction native "filter"'), self.list_comparator)
@@ -66,17 +84,26 @@ class TestFilter(TestBase):
 
 class TestMap(TestBase):
 
+    def __init__ (self) -> None:
+        super().__init__("test_maps")
+
     def run(self, mapping_classic_ctx:callable, mapping_studied_ctx:callable):
         self.test_func(FunctionContext(mapping_classic_ctx, s2.apply_taxes_classic,'Application de la taxe par voie "classique"'), self.list_comparator)
         self.test_func(FunctionContext(mapping_studied_ctx, s2.apply_taxes_with_map,'Application de la taxe avec la fonction native "map"'), self.list_comparator)
 
 class TestSorting(TestBase):
 
+    def __init__ (self) -> None:
+        super().__init__("test_sorting")
+
     def run(self, sorting_classic_func:callable, sorting_studied_func:callable):
         self.test_func(FunctionContext(sorting_classic_func, s3.sort_by_category_with_list,'Tri "classique"'), self.list_comparator)
         self.test_func(FunctionContext(sorting_studied_func, s3.sort_by_category_with_sorted,'Tri avec la fonction native "sorted"'), self.list_comparator)
 
 class TestGroupBy(TestBase):
+
+    def __init__ (self) -> None:
+        super().__init__("test_groupby")
 
     def dict_comparator (self, expected:dict[str, Iterable[Item]], actual:dict[str, Iterable[Item]]) -> None:
             
@@ -96,10 +123,17 @@ class TestGroupBy(TestBase):
         self.test_func(FunctionContext(group_by_studied_with_itertools_func, s4.groupby_category_with_itertools,'Groupement avec la fonction "itertools.groupby"'), self.dict_comparator)
         
 class TestCombine(TestGroupBy):
+
+    def __init__ (self) -> None:
+        super().__init__("test_combine")
+
     def run (self, combine:callable) -> None:
         self.test_func(FunctionContext(combine, s5.combine,'Combinaison'), self.dict_comparator)        
 
 class TestReduce(TestGroupBy):
+
+   def __init__ (self) -> None:
+        super().__init__("test_reduce")
 
    def array_comparator (self, expected:array, actual: array) -> None:
        return expected == actual
