@@ -69,6 +69,12 @@ def compute_revenue_recursive (items:list[Item]) -> array:
     else:
         return _add_item([0, 0, 0], items[0])
 
+def compute_revenue_recursive_variante (items:list[Item]) -> array:
+    if len(items) == 0:
+        return array('i', [0, 0, 0])
+
+    return _add_item(compute_revenue_recursive(items[1:]), items[0])
+
 def compute_revenue_recursive2 (items:list[Item], result: array=[0,0,0]) -> array:
 
     if (items is None or len(items) == 0) :
