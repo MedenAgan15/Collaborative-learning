@@ -1,0 +1,100 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0" version="29.6.6">
+  <diagram name="Page-1" id="R2fC4luyc4VgYFVU0LF0">
+    <mxGraphModel dx="786" dy="695" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="tkEypK4Vdgj_0lDnjImC-2" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="" vertex="1">
+          <mxGeometry height="130" width="130" x="340" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="tkEypK4Vdgj_0lDnjImC-1" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="Les notions clé de la programmation fonctionnelle" vertex="1">
+          <mxGeometry height="50" width="100" x="355" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="tkEypK4Vdgj_0lDnjImC-3" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="De fonctions pures" vertex="1">
+          <mxGeometry height="120" width="206" x="302" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="tkEypK4Vdgj_0lDnjImC-4" parent="tkEypK4Vdgj_0lDnjImC-3" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="La sortie de ces fonctions ne dépend que de l&#39;entrée (&quot;transparence référentielle&quot;) =&amp;gt; absence d&#39;effets de bord" vertex="1">
+          <mxGeometry height="80" width="180" x="10" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tkEypK4Vdgj_0lDnjImC-5" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Des fonctions d&#39;ordre supérieur" vertex="1">
+          <mxGeometry height="110" width="200" x="535" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="tkEypK4Vdgj_0lDnjImC-6" parent="tkEypK4Vdgj_0lDnjImC-5" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="Ces fonctions acceptent une ou plusieurs fonctions comme arguments et/ou renvoient une fonction." vertex="1">
+          <mxGeometry height="80" width="180" x="10" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tkEypK4Vdgj_0lDnjImC-7" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Fonctions atomiques" vertex="1">
+          <mxGeometry height="120" width="210" x="530" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="tkEypK4Vdgj_0lDnjImC-8" parent="tkEypK4Vdgj_0lDnjImC-7" style="text;whiteSpace=wrap;html=1;" value="Chaque fonction doit avoir un but unique : celui-ci doit être à la fois “simple” et “générique”." vertex="1">
+          <mxGeometry height="80" width="210" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="tkEypK4Vdgj_0lDnjImC-9" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="L&#39;immutabilité" vertex="1">
+          <mxGeometry height="140" width="200" x="90" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="tkEypK4Vdgj_0lDnjImC-10" parent="tkEypK4Vdgj_0lDnjImC-9" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="Une fois initialisées, les variables ne peuvent plus être modifiées. cela garantit la préservation de l&#39;état d&#39;une variable tout au long de l&#39;exécution du programme." vertex="1">
+          <mxGeometry height="120" width="180" x="10" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="tkEypK4Vdgj_0lDnjImC-12" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="La composition (flux de données)" vertex="1">
+          <mxGeometry height="150" width="200" x="40" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="tkEypK4Vdgj_0lDnjImC-11" parent="tkEypK4Vdgj_0lDnjImC-12" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="Chaque fonction opère sur son entrée et produit une sortie qui sert d&#39;entrée à la fonction suivante. Avec cette approche, se dessine donc naturellement la structuration d&#39;un flux de données." vertex="1">
+          <mxGeometry height="120" width="180" x="10" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="tkEypK4Vdgj_0lDnjImC-14" parent="1" style="swimlane;whiteSpace=wrap;html=1;startSize=23;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="La récursivité" vertex="1">
+          <mxGeometry height="120" width="200" x="305" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="tkEypK4Vdgj_0lDnjImC-15" parent="tkEypK4Vdgj_0lDnjImC-14" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="Une fonction s&#39;appelle elle-même à plusieurs reprises jusqu&#39;à ce qu&#39;une condition de sortie soit remplie" vertex="1">
+          <mxGeometry height="120" width="180" x="10" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tkEypK4Vdgj_0lDnjImC-16" edge="1" parent="1" source="tkEypK4Vdgj_0lDnjImC-2" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="tkEypK4Vdgj_0lDnjImC-14" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="390" y="390" as="sourcePoint" />
+            <mxPoint x="440" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tkEypK4Vdgj_0lDnjImC-17" edge="1" parent="1" source="tkEypK4Vdgj_0lDnjImC-2" style="endArrow=classic;html=1;rounded=0;exitX=0.277;exitY=0.977;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;curved=1;exitPerimeter=0;" target="tkEypK4Vdgj_0lDnjImC-9" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="360" y="390" />
+            </Array>
+            <mxPoint x="390" y="390" as="sourcePoint" />
+            <mxPoint x="440" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tkEypK4Vdgj_0lDnjImC-18" edge="1" parent="1" source="tkEypK4Vdgj_0lDnjImC-2" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;curved=1;" target="tkEypK4Vdgj_0lDnjImC-12" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="330" y="185" />
+            </Array>
+            <mxPoint x="390" y="390" as="sourcePoint" />
+            <mxPoint x="440" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tkEypK4Vdgj_0lDnjImC-19" edge="1" parent="1" source="tkEypK4Vdgj_0lDnjImC-2" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="tkEypK4Vdgj_0lDnjImC-3" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="390" y="390" as="sourcePoint" />
+            <mxPoint x="440" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tkEypK4Vdgj_0lDnjImC-20" edge="1" parent="1" source="tkEypK4Vdgj_0lDnjImC-2" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=1;" target="tkEypK4Vdgj_0lDnjImC-5" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="480" y="180" />
+            </Array>
+            <mxPoint x="390" y="390" as="sourcePoint" />
+            <mxPoint x="440" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tkEypK4Vdgj_0lDnjImC-22" edge="1" parent="1" source="tkEypK4Vdgj_0lDnjImC-2" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=-0.014;entryY=0.35;entryDx=0;entryDy=0;entryPerimeter=0;curved=1;" target="tkEypK4Vdgj_0lDnjImC-8" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="460" y="380" />
+            </Array>
+            <mxPoint x="390" y="390" as="sourcePoint" />
+            <mxPoint x="440" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
