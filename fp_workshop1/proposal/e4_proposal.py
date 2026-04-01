@@ -42,6 +42,19 @@ Astuce :
 On pourra, si on le juge opportun, s'appuyer sur e3.sort_by_category_with_list(items) afin de disposer des items déjà triés par catégorie
 '''
 def groupby_category_classic (items:list[Item]) -> dict[str, Iterable[Item]]:
+    group = dict()
+    for item in items:
+        category = item.category.name
+        if category not in group.keys():
+            group[category] = list()
+        
+        toolsList = group[category]
+        toolsList.append(item)
+    return group    
+'''
+Variante s'appuyant sur la gestion d'une rupture
+'''
+def groupby_category_classic_variant (items:list[Item]) -> dict[str, Iterable[Item]]:
     
     sorted_items:list[Item]  = e3.sort_by_category_with_list(items)
 
@@ -61,7 +74,7 @@ def groupby_category_classic (items:list[Item]) -> dict[str, Iterable[Item]]:
         current_group.append(item)
 
     return result
-            
+        
 '''
 Il s'agit ici de produire le même résultat que précédement, mais en faisant cette fois appel à la fonction 'itertools.groupby'.
 Sur le principe, cette fonction admet deux arguments :
