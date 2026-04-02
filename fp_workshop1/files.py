@@ -1,5 +1,7 @@
+from io import TextIOWrapper
 import os
 import refs
+from array import array
 
 def create_result_files_home () -> str:
     '''
@@ -11,12 +13,31 @@ def create_result_files_home () -> str:
         os.makedirs(result_dir)
     return result_dir
 
-def open_result_file (step:str) :
-    result_file_path = os.path.join(create_result_files_home(), f'{step}.txt')
+def open_result_file (step:str, title:str) :
+
+    suffix = ""
+    if title != "":
+        suffix= f'_{title}'
+
+    result_file_path = os.path.join(create_result_files_home(), f'{step}{suffix}.txt')
     print (f"> Fichier résultat : {result_file_path}")
     return open (result_file_path, "w")
 
-def write(items:list[refs.Item], file) -> None :
-    if items is None or file is None: return
+def write(items, file) -> None :
+    
+    if items is None or file is None: 
+        return
+    
     file.write("\n")
-    file.write('\n'.join(list (map (lambda i : refs.convert_item_to_string(i), items))))
+    if isinstance(items, list) :        
+        file.write('\n'.join(list (map (lambda i : refs.convert_item_to_string(i), items))))
+    elif isinstance(items, dict):
+        for k,v in items.items() :
+            file.write(f"{k}\n")
+            for item in v :
+                file.write(f"   {refs.convert_item_to_string(item)}\n")
+    elif isinstance(items, array) :
+        file.write('\n'.join(list (map (lambda i : str(i), items))))
+    else :
+        file.write(f"Désolé, ce type de données n'est pas pris en charge : {type(items)}")
+        file.flush()

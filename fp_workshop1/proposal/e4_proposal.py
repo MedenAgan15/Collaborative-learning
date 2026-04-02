@@ -99,11 +99,5 @@ On pourra s'inspirer de la page ci-dessous pour imaginer une solutoin simple :
 def groupby_category_with_itertools (items:list[Item]) -> dict[str, Iterable[Item]]:
     return {category: list(items) for category, items in itertools.groupby(items, get_category_key)}
 
-#region Exécution
-if __name__ == "__main__":
-    print("TEST - ETAPE 4 - Début...")
-    ut.TestGroupBy().run(groupby_category_classic, groupby_category_with_itertools)
-    print("TEST - ETAPE 4 - Fin")
-#endregion
 #endregion
 

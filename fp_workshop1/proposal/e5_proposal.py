@@ -11,3 +11,5 @@ def combine (items:list[Item]):
     for categorie in result:
         print(f"{categorie}")
         print(refs.convert_items_to_string(result[categorie]))
+
+    return result

@@ -52,6 +52,9 @@ def convert_item_to_string (item:Item) -> str:
     if (item is None):
         return ""
     
+    if not isinstance(item, Item) :
+        return f"Unexpected type {type(item)}"
+    
     return f"Seller: {item.seller.name}, Category:{item.category.name}, Label:{item.label}, Price:{item.price} €"
 
 # -----
